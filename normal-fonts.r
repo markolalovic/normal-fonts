@@ -3,20 +3,15 @@
 library("mvtnorm")
 
 #' Saves pictures of all the characters
-save <- function(letter, d, s1, a, b, n,
-  N=500, s2=10, lwd=5, drawlabels=TRUE) {
-    x <- seq(a, b, length = N)
-    levs <- pretty(d, n=n)
-    levs <- levs[s1:length(levs)]
+save <- function(letter, d, lwd=10) {
+    x <- seq(-5, 5, length = 500)
     fname <- paste("glyphs/", letter, ".png", sep="")
     png(file=fname, width=2000, height=2000)
-    contour(x, x, d,
-            levels=levs[-c(s2, length(levs))],
+    contour(x, x, d, 10,
             col = c("#111111", "#333333", "#555555", "#777777"),
             lwd = lwd,
             lty = 1,
-            drawlabels = drawlabels,
-            labcex=1,
+            drawlabels = FALSE,
             bty = "n",
             xaxt = "n",
             yaxt = "n")
@@ -27,8 +22,8 @@ letters <- 1:26 # the English alphabet consists of 26 letters:
 names(letters) <- c("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L",
   "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z")
 
-paramsList <- readRDS(file = "paramsList.rds") # letter, d - matrix, s1, a, b, n
+paramsList <- readRDS(file = "paramsList.rds") # letter, d - matrix
 for (i in letters) {
     params <- paramsList[[i]]
-    save(params$letter, params$d, params$s1, params$a, params$b, params$n)
+    save(params$letter, params$d)
 }
