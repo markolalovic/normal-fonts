@@ -4,7 +4,7 @@ This repository contains the code to draw the letters of the English alphabet as
 
 Here is the notebook where you can play with the fonts:
 
-[https://observablehq.com/d/cb6670247d2a4ba1](https://observablehq.com/d/cb6670247d2a4ba1)
+[https://observablehq.com/@markolalovic/fun-with-statistics-normal-fonts](https://observablehq.com/@markolalovic/fun-with-statistics-normal-fonts)
 
 I picked up this idea for the initials logo from the blog post here:
 
